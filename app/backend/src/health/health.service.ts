@@ -503,10 +503,14 @@ export class HealthService {
       const message =
         error instanceof Error ? error.message : 'Unknown on-chain error';
 
-      this.logger.warn('On-chain adapter health check failed', 'HealthService', {
-        error: message,
-        adapter: adapterType,
-      });
+      this.logger.warn(
+        'On-chain adapter health check failed',
+        'HealthService',
+        {
+          error: message,
+          adapter: adapterType,
+        },
+      );
 
       return {
         status: 'down',
